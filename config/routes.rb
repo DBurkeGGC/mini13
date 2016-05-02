@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :avatars
+  devise_for :users
   get 'users/new'
 
   root             'static_pages#home'

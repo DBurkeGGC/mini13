@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @avatar.name %>
+</p>
+
+<p>
+  <strong>Desc:</strong>
+  <%= @avatar.desc %>
+</p>
+
+<p>
+  <strong>Picture:</strong>
+  <%= image_tag(@avatar.picture_url, :width => 200) if @avatar.picture.present? %>
+</p>
+
+<%= link_to 'Edit', edit_avatar_path(@avatar) %> |
+<%= link_to 'Back', avatars_path %>

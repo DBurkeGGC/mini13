@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Avatars</h1>
+
+<table>
+  <col width="200"><col width="200"><col width="500"><col width="50"><col width="40">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Desc</th>
+      <th>Picture</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @avatars.each do |avatar| %>
+      <tr>
+        <td><%= avatar.name %></td>
+        <td><%= avatar.desc %></td>
+        <td><%= image_tag(avatar.picture, :width => 30, :height => 30) if avatar.picture.present? %>&nbsp&nbsp&nbsp<%= avatar.picture %></td>
+        <td><%= link_to 'Show', avatar %></td>
+        <td><%= link_to 'Edit', edit_avatar_path(avatar) %></td>
+        <td><%= link_to 'Destroy', avatar, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Avatar', new_avatar_path %>
